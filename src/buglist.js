@@ -8,11 +8,11 @@ var BugSubmitForm = require('./bugsubmitform.js');
 var BugList = React.createClass({
 
     getInitialState: function() {
-        return {bugs:[]}
+        return {bugs:[], api: '/api/bugs'}
     },
     loadBugs: function(filter) {
         $.ajax({
-            url: 'api/bugs',
+            url: this.props.api,
             data: filter,
             cache: false,
             success: function(cb) {
@@ -36,7 +36,7 @@ var BugList = React.createClass({
         return (
             <div>
                 <h1>Bug Tracker</h1>
-                <BugFilter filterHandler = {this.loadBugs}/>
+                <BugFilter filterHandler = {this.loadBugs} initFilter={this.props.location.query}/>
                 <hr />
                 <BugTable bugs = {this.state.bugs}/>
                 <hr />
@@ -52,7 +52,7 @@ var BugList = React.createClass({
 
         $.ajax({
             type: 'post',
-            url: 'api/bugs',
+            url: this.props.api,
             contentType: 'application/JSON',
             data: JSON.stringify(newBugJSON),
             success: function(data) {

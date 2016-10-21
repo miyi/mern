@@ -51,6 +51,7 @@
 	var Router = __webpack_require__(178).Router;
 	var Route = __webpack_require__(178).Route;
 	var Redirect = __webpack_require__(178).Redirect;
+	var browserHistory = __webpack_require__(178).browserHistory;
 
 	var NoMatch = React.createClass({
 	    displayName: 'NoMatch',
@@ -66,6 +67,8 @@
 
 	ReactDOM.render(
 	// <BugList url='/api/bugs'/>,
+
+	// <Router history={browserHistory}>
 	React.createElement(
 	    Router,
 	    null,
@@ -21456,11 +21459,11 @@
 
 
 	    getInitialState: function () {
-	        return { bugs: [] };
+	        return { bugs: [], api: '/api/bugs' };
 	    },
 	    loadBugs: function (filter) {
 	        $.ajax({
-	            url: 'api/bugs',
+	            url: this.props.api,
 	            data: filter,
 	            cache: false,
 	            success: function (cb) {
@@ -21489,7 +21492,7 @@
 	                null,
 	                'Bug Tracker'
 	            ),
-	            React.createElement(BugFilter, { filterHandler: this.loadBugs }),
+	            React.createElement(BugFilter, { filterHandler: this.loadBugs, initFilter: this.props.location.query }),
 	            React.createElement('hr', null),
 	            React.createElement(BugTable, { bugs: this.state.bugs }),
 	            React.createElement('hr', null),
@@ -21504,7 +21507,7 @@
 
 	        $.ajax({
 	            type: 'post',
-	            url: 'api/bugs',
+	            url: this.props.api,
 	            contentType: 'application/JSON',
 	            data: JSON.stringify(newBugJSON),
 	            success: function (data) {
@@ -31873,25 +31876,79 @@
 	var React = __webpack_require__(1);
 
 	var BugFilter = React.createClass({
-	    displayName: 'BugFilter',
+	    displayName: "BugFilter",
+
+	    getInitialState: function () {
+	        var initFilter = this.props.initFilter;
+	        return { status: initFilter.status, priority: initFilter.priority };
+	    },
+
+	    onChangeStatus: function () {
+	        this.submit();
+	    },
+	    onChangePriority: function () {
+	        this.submit();
+	    },
 
 	    render: function () {
 
 	        return React.createElement(
-	            'div',
+	            "div",
 	            null,
 	            React.createElement(
-	                'button',
-	                { onClick: this.submit },
-	                'test Filter'
+	                "h3",
+	                null,
+	                "Filter:"
+	            ),
+	            React.createElement(
+	                "select",
+	                { value: this.state.status, onChange: this.onChangeStatus },
+	                React.createElement(
+	                    "option",
+	                    { value: "", disabled: "disabled", selected: "selected" },
+	                    "select status"
+	                ),
+	                React.createElement(
+	                    "option",
+	                    { value: "open" },
+	                    "open"
+	                ),
+	                React.createElement(
+	                    "option",
+	                    { value: "closed" },
+	                    "closed"
+	                )
+	            ),
+	            React.createElement(
+	                "select",
+	                { value: this.state.priority, onChange: this.onChangePriority },
+	                React.createElement(
+	                    "option",
+	                    { value: "", disabled: "disabled", selected: "selected" },
+	                    "select Priority"
+	                ),
+	                React.createElement(
+	                    "option",
+	                    { value: "super urgent" },
+	                    "super urgent"
+	                ),
+	                React.createElement(
+	                    "option",
+	                    { value: "urgent" },
+	                    "urgent"
+	                ),
+	                React.createElement(
+	                    "option",
+	                    { value: "high" },
+	                    "high"
+	                )
 	            )
 	        );
 	    },
 
-	    submit: function (e) {
+	    submit: function () {
 	        console.log('testing filter');
-	        e.preventDefault;
-	        this.props.filterHandler({ priority: "P3" });
+	        this.props.filterHandler({ status: this.state.status, priority: this.state.priority });
 	    }
 	});
 

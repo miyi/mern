@@ -1,4 +1,5 @@
 var express = require('express');
+var path = require('path');
 var bodyParser = require('body-parser');
 
 //hashnode uses MongoClient
@@ -29,6 +30,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 //GET
+// app.get('*', function (req, res){
+//     res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+// });
 app.get('/api/bugs', function(req, res) {
     console.log('query string: ', req.query);
     var filter = {};
