@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+
 //hashnode uses MongoClient
 var MongoClient = require('mongodb').MongoClient;
 //var test = require('assert');
@@ -29,7 +30,14 @@ app.use(bodyParser.json());
 
 //GET
 app.get('/api/bugs', function(req, res) {
-    db.collection('bugs').find().toArray(function(err, docs) {
+    console.log('query string: ', req.query);
+    var filter = {};
+    if(req.query.priority)
+        filter.priority = req.query.priority;
+    if(req.query.status)
+        filter.status = req.query.status;
+
+    db.collection('bugs').find(filter).toArray(function(err, docs) {
         res.json(docs);
     })
 });
