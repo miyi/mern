@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15654b94-d75b-46b3-9b0f-cb0bb5634b21" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/bugedit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/testfilter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app.bundle.js" afterPath="$PROJECT_DIR$/public/app.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.js" afterPath="$PROJECT_DIR$/src/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bugfilter.js" afterPath="$PROJECT_DIR$/src/bugfilter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/buglist.js" afterPath="$PROJECT_DIR$/src/buglist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bugedit.js" afterPath="$PROJECT_DIR$/src/bugedit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bugrow.js" afterPath="$PROJECT_DIR$/src/bugrow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bugsubmitform.js" afterPath="$PROJECT_DIR$/src/bugsubmitform.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bugtable.js" afterPath="$PROJECT_DIR$/src/bugtable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp.js" afterPath="$PROJECT_DIR$/webapp.js" />
     </list>
     <ignored path="mern_hashnode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,8 +52,8 @@
       <file leaf-file-name="bugedit.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bugedit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+            <state relative-caret-position="315">
+              <caret line="94" column="113" selection-start-line="94" selection-start-column="113" selection-end-line="94" selection-end-column="113" />
               <folding />
             </state>
           </provider>
@@ -70,7 +62,7 @@
       <file leaf-file-name="buglist.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/buglist.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="-402">
               <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="48" selection-end-column="6" />
               <folding />
             </state>
@@ -82,6 +74,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bugrow.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bugrow.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -135,13 +137,13 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/public/app.bundle.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/bugrow.js" />
         <option value="$PROJECT_DIR$/src/bugtable.js" />
         <option value="$PROJECT_DIR$/webapp.js" />
         <option value="$PROJECT_DIR$/src/buglist.js" />
         <option value="$PROJECT_DIR$/src/bugsubmitform.js" />
         <option value="$PROJECT_DIR$/src/bugfilter.js" />
         <option value="$PROJECT_DIR$/src/app.js" />
+        <option value="$PROJECT_DIR$/src/bugrow.js" />
         <option value="$PROJECT_DIR$/src/bugedit.js" />
       </list>
     </option>
@@ -718,12 +720,12 @@
       <workItem from="1475463088840" duration="1276000" />
       <workItem from="1475465549999" duration="36136000" />
       <workItem from="1476587297635" duration="16463000" />
-      <workItem from="1476822654069" duration="45467000" />
+      <workItem from="1476822654069" duration="46679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99342000" />
+    <option name="totallyTimeSpent" value="100554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -824,7 +826,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1477606418000" expanded="true" signature="1210176:1210185" placeholder="{...}" />
+            <marker date="1477609278000" expanded="true" signature="1209265:1209274" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -954,7 +956,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1477606418000" expanded="true" signature="1210176:1210185" placeholder="{...}" />
+            <marker date="1477609278000" expanded="true" signature="1209265:1209274" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -983,34 +985,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bugrow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bugtable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testfilter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bugsubmitform.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -1033,6 +1011,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/buglist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-402">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="48" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bugfilter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1041,18 +1027,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buglist.js">
+    <entry file="file://$PROJECT_DIR$/src/testfilter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="48" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bugsubmitform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bugrow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bugedit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        <state relative-caret-position="315">
+          <caret line="94" column="113" selection-start-line="94" selection-start-column="113" selection-end-line="94" selection-end-column="113" />
           <folding />
         </state>
       </provider>

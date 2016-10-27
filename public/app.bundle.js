@@ -31841,7 +31841,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-
+	var Link = __webpack_require__(178).Link;
 	var BugRow = React.createClass({
 	    displayName: 'BugRow',
 
@@ -31852,7 +31852,11 @@
 	            React.createElement(
 	                'td',
 	                null,
-	                this.props.bug._id
+	                React.createElement(
+	                    Link,
+	                    { to: '/bugs/' + this.props.bug._id },
+	                    this.props.bug._id
+	                )
 	            ),
 	            React.createElement(
 	                'td',
@@ -37732,6 +37736,7 @@
 
 	var React = __webpack_require__(1);
 	var $ = __webpack_require__(173);
+	var Link = __webpack_require__(178).Link;
 
 	var BugEdit = React.createClass({
 	    displayName: 'BugEdit',
@@ -37803,7 +37808,6 @@
 
 	    onChangeStatus: function (e) {
 	        this.setState({ status: e.target.value });
-	        console.log('status: ', this.state.status);
 	    },
 	    onChangePriority: function (e) {
 	        this.setState({ priority: e.target.value });
@@ -37861,6 +37865,11 @@
 	                    'button',
 	                    { onClick: this.submitEdit },
 	                    'Save Edit'
+	                ),
+	                React.createElement(
+	                    Link,
+	                    { to: '/bugs' },
+	                    'Back to bug likst'
 	                )
 	            )
 	        );

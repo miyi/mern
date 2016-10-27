@@ -1,5 +1,6 @@
 var React = require('react');
 var $ = require('jquery');
+var Link = require('react-router').Link;
 
 var BugEdit = React.createClass({
 
@@ -68,7 +69,6 @@ var BugEdit = React.createClass({
 
     onChangeStatus: function(e) {
         this.setState({status: e.target.value});
-        console.log('status: ', this.state.status);
     },
     onChangePriority: function(e) {
         this.setState({priority: e.target.value});
@@ -92,7 +92,7 @@ var BugEdit = React.createClass({
                         <option value="P2">P2</option>
                         <option value="P3">P3</option>
                     </select>
-                    <button onClick={this.submitEdit}>Save Edit</button>
+                    <button onClick={this.submitEdit}>Save Edit</button><Link to="/bugs">Back to bug likst</Link>
 
                 </div>
             </div>
