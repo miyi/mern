@@ -10,9 +10,17 @@ var BugList = React.createClass({
     getInitialState: function() {
         return {bugs:[], api: '/api/bugs'}
     },
-    loadBugs: function(filter) {
+
+    changeFilter: function(newFilter) {
+        this.props.history.push({search: '?' + $.param(newFilter)});
+    },
+    loadBugs: function() {
+        console.log('this.location.query: ', this.props.location.query);
+        // data: this.props.location.query works but using filter is probably better for error purposes
+        var query = this.props.location.query || {};
+        var filter = {status: query.status, priority: query.priority};
         $.ajax({
-            url: this.props.api,
+            url: this.state.api,
             data: filter,
             cache: false,
             success: function(cb) {
@@ -22,21 +30,29 @@ var BugList = React.createClass({
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
-
-        // $.ajax('/api/bugs').done(function(bugs) {
-        //     this.setState({bugs:bugs});
-        // }.bind(this));
     },
 
     componentDidMount: function() {
-        this.loadBugs({});
+        this.loadBugs();
     },
+    componentDidUpdate: function(prevProps) {
+        var oldQ = prevProps.location.query;
+        var newQ = this.props.location.query;
+        if(oldQ.status === newQ.status && oldQ.priority === newQ.priority) {
+            console.log("component did update, no change in filter");
+            return;
+        } else {
+            console.log('component did update, filter changed');
+            this.loadBugs();
+        }
+
+    },
+
     render: function() {
-        console.log("Rendering bug list, num items:", this.state.bugs.length);
         return (
             <div>
                 <h1>Bug Tracker</h1>
-                <BugFilter filterHandler = {this.loadBugs} initFilter={this.props.location.query}/>
+                <BugFilter filterHandler = {this.changeFilter} initFilter={this.props.location.query}/>
                 <hr />
                 <BugTable bugs = {this.state.bugs}/>
                 <hr />
@@ -46,13 +62,12 @@ var BugList = React.createClass({
     },
 
     addBug: function(newBugJSON) {
-        console.log('adding a new bug: ', newBugJSON);
 
         //TODO: optimistic updates
 
         $.ajax({
             type: 'post',
-            url: this.props.api,
+            url: this.state.api,
             contentType: 'application/JSON',
             data: JSON.stringify(newBugJSON),
             success: function(data) {

@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 //hashnode uses MongoClient
 var MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectID;
 //var test = require('assert');
 var port =  process.env.PORT || 3000;
 
@@ -30,9 +31,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 //GET
-// app.get('*', function (req, res){
-//     res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-// });
+
 app.get('/api/bugs', function(req, res) {
     console.log('query string: ', req.query);
     var filter = {};
@@ -55,6 +54,35 @@ app.post('/api/bugs', function(req, res) {
             res.json(doc);
         });
     });
+});
+
+//GET single DOC
+app.get('/api/bugs/:id', function(req,res) {
+    console.log('req.body ', req.body);
+    if(!ObjectId.isValid(req.params.id)) {
+        res.send('Id is not valid');
+    } else {
+        db.collection('bugs').findOne({_id:ObjectId(req.params.id)}, function(err, doc) {
+            res.json(doc);
+        });
+    }
+});
+
+//PUT?? I don't know what it is
+app.put('/api/bugs/:id', function(req,res) {
+    var bug = req.body;
+    console.log('modifying: ', req.params.id, bug);
+    if(!ObjectId.isValid(req.params.id)) {
+        res.send('Id is not valid');
+    } else {
+        var bugId = ObjectId(req.params.id);
+        db.collection('bugs').updateOne({_id:bugId}, bug, function(err, result) {
+            db.collection('bugs').find({_id:bugId}).next(function(err, doc) {
+                res.json(doc);
+            });
+        });
+    }
+
 });
 
 //listening on port

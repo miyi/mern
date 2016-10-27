@@ -3,7 +3,6 @@ var BugRow = require('./bugrow.js');
 
 var BugTable = React.createClass({
     render: function() {
-        console.log("Rendering bug table, num items:", this.props.bugs.length);
         var bugRows = this.props.bugs.map(function(bug) {
 
             return <BugRow key={bug._id} bug={bug}/>

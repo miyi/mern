@@ -4,7 +4,6 @@ var BugSubmitForm = React.createClass({
 
     submitToAddBug: function(e) {
         e.preventDefault();
-        console.log('handling submit');
 
         //document.forms.formname has to be the form name of the form I'm trying to submit under name attribute
         var form = document.forms.bugForm;
@@ -18,7 +17,6 @@ var BugSubmitForm = React.createClass({
     },
 
     render: function() {
-        console.log('Rendering Bug Submit Form');
         return(
             <div>
                 <form name="bugForm">
@@ -26,14 +24,14 @@ var BugSubmitForm = React.createClass({
                     <input type="text" name="title" placeholder="Title" />
                     <select name="status">
                         <option value="" disabled="disabled" selected="selected">select status</option>
-                        <option value="open">open</option>
-                        <option value="closed">closed</option>
+                        <option value="open">Open</option>
+                        <option value="closed">Closed</option>
                     </select>
                     <select name="priority">
                         <option value="" disabled="disabled" selected="selected">select priority</option>
-                        <option value="super urgent">super urgent</option>
-                        <option value="urgent">urgent</option>
-                        <option value="high">high</option>
+                        <option value="P1">P1</option>
+                        <option value="P2">P2</option>
+                        <option value="P3">P3</option>
                     </select>
                     <button onClick={this.submitToAddBug}>Add Bug</button>
                 </form>

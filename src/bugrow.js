@@ -2,7 +2,6 @@ var React = require('react');
 
 var BugRow = React.createClass({
     render: function() {
-        console.log("Rendering BugRow:", this.props.bug);
         return(
             <tr>
                 <td>{this.props.bug._id}</td>
